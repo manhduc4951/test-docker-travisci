@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  frontend_app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/app
+  frontend_app_test:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - .:/app
+    command: npm run test
